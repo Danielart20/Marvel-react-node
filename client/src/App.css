@@ -1,0 +1,10 @@
+body{
+  font-family: 'Hind Siliguri', sans-serif;
+  background-image: url("img/background.jpeg");
+  background-position: center; /* Center the image */
+  height: 700px;
+}
+#newComics{
+  height: 1200px;
+  background-color: white;
+}

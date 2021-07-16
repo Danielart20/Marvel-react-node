@@ -4,21 +4,32 @@ import Nav from './components/nav';
 
 function App() {
   //Ejemplo de api request de react a nodejs
-  const [data, setData] = React.useState([]);
+  const [characters, setCharacters] = React.useState([]);
+  const [comics, setComics] = React.useState([]);
+  const [events, setEvents] = React.useState([]);
+  const [series, setSeries] = React.useState([]);
+  
+  //function that calls api from backend
+  /*const callFromBackend = ({state,changeState}) => {
 
-  React.useEffect(() => {
-    fetch("/api")
+    fetch("/api/" + state)
       .then((res) => res.json())
-      .then((data) => setData(data.message.data.results));
-  }, [data]);
-  console.log(data);
+      .then((data) => changeState(data.message.data.results));
+
+  }
+
+  callFromBackend("characters", setCharacters)
+  callFromBackend("comics", setComics)
+  callFromBackend("events", setEvents)
+  callFromBackend("series", setSeries)*/
 
   return (
     <div className="container">
       <Nav />
       <section id="newComics">
         <div className="row">
-          {data.map((personaje) => <div className="col-md-3"><img src={personaje.thumbnail.path + "/portrait_xlarge." + personaje.thumbnail.extension } /><p>{personaje.name}</p></div> )}
+          {/* MIRAR .FILTER para solo coger 4 pelicuas, comics etc*/}
+          {characters.map((personaje) => <div className="col-md-3"><img src={personaje.thumbnail.path + "/portrait_xlarge." + personaje.thumbnail.extension } /><p>{personaje.name}</p></div> )}
         </div>
       </section>
     </div>
